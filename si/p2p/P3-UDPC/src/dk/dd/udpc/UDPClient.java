@@ -11,11 +11,9 @@ import java.net.InetAddress;
 import java.util.Scanner;
 
 /**
- *
  * @author Dora Di
  */
-public class UDPClient
-{
+public class UDPClient {
     private static final int serverPort = 7777;
 
     // buffers for the messages
@@ -30,8 +28,7 @@ public class UDPClient
 
     private static byte[] imageSend;
 
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         //saveImage(loadImage("tinyImage.png"));
         // Enter server's IP address as a parameter from Run/Edit Configuration/Application/Program Arguments
 
@@ -42,8 +39,7 @@ public class UDPClient
         Scanner scan = new Scanner(System.in);
         System.out.println("Type message: ");
 
-        while((message = scan.nextLine()) != null)
-        {
+        while ((message = scan.nextLine()) != null) {
             sendRequest(serverIP);
             receiveResponse();
         }
@@ -52,8 +48,7 @@ public class UDPClient
 
     }
 
-    public static void sendRequest(InetAddress serverIP) throws IOException
-    {
+    public static void sendRequest(InetAddress serverIP) throws IOException {
         //clientSocket = new DatagramSocket();
         dataOut = loadImage("tinyImage.png");
         imageSend = dataOut;
@@ -64,19 +59,18 @@ public class UDPClient
     public static byte[] loadImage(String path) throws IOException {
         BufferedImage bImage = ImageIO.read(new File(path));
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "png", bos );
+        ImageIO.write(bImage, "png", bos);
         return bos.toByteArray();
     }
 
     public static void saveImage(byte[] image) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(image);
         BufferedImage bImage = ImageIO.read(bis);
-        ImageIO.write(bImage, "png", new File("imageFromServer.png") );
+        ImageIO.write(bImage, "png", new File("imageFromServer.png"));
         System.out.println("image created");
     }
 
-    public static void receiveResponse() throws IOException
-    {
+    public static void receiveResponse() throws IOException {
         //clientSocket = new DatagramSocket();
         responsePacket = new DatagramPacket(dataIn, dataIn.length);
         clientSocket.receive(responsePacket);
