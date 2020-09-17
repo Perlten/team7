@@ -2,7 +2,6 @@ package com.example.rpc.server;
 
 import com.example.rpc.commen.BankInterface;
 import com.example.rpc.commen.Customer;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
