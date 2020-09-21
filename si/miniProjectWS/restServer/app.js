@@ -26,6 +26,17 @@ app.get("/country", (req, res) => {
     res.json({ country: country.code });
 })
 
+app.get("/countryCode", (req, res) => {
+    let countryCode = req.query.countryCode
+    
+    let country = countries.find(e => e.code === countryCode);
+    if(!country){
+        res.status(404)
+        res.json({error: "No country found!"})
+    } 
+    res.status(200);
+    res.json({ country: country.code });
+})
 
 app.put("/updateCountry", (req, res) => {
     let countryMeta = req.body;
