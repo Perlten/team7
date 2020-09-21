@@ -83,4 +83,4 @@ async function updateCountryBasedOnName(country) {
 
 
 updateRandomCountry();
-updateCountryBasedOnName("Angola");
+// updateCountryBasedOnName("Angola");
