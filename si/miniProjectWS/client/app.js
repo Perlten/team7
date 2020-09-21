@@ -1,5 +1,6 @@
 const soap = require('soap');
 const fetch = require('node-fetch')
+const readline = require("readline");
 
 function queryParamsMaker(params) {
 
@@ -53,13 +54,12 @@ async function updateCountryWithCurrencyAndMajorCity(countryInput) {
 
     let updateResponse = await fetch("http://localhost:3000/updateCountry", options);
     let res = await updateResponse.json()
-    console.log(res)
     return res
 }
 
 async function updateRandomCountry() {
     let country = await fetch("http://localhost:3000/countries")
-    let res =  await updateCountryWithCurrencyAndMajorCity(country);
+    let res = await updateCountryWithCurrencyAndMajorCity(country);
     return res
 }
 
@@ -103,6 +103,53 @@ async function updateCountryBasedOnCode(countryCode) {
 }
 
 
-// updateRandomCountry();
-// updateCountryBasedOnName("Angola");
-updateCountryBasedOnCode("NL");
+
+async function runProgram() {
+    console.log("Welcome to the program")
+    while (true) {
+        try {
+
+            console.log("------------------------------");
+            console.log("Press 0 to quit")
+            console.log("Press 1 to update random country")
+            console.log("Press 2 to update country by country code")
+            console.log("Press 3 to update country by country name")
+            console.log("------------------------------");
+            let userInput = await getInput("");
+
+            if (userInput === "1") {
+                await updateRandomCountry();
+            } else if (userInput === "2") {
+                let countryCode = await getInput("Country code: ")
+                let response = await updateCountryBasedOnCode(countryCode);
+                console.log(response);
+            } else if (userInput === "3") {
+                let countryName = await getInput("Country name: ")
+                let response = await updateCountryBasedOnName(countryName);
+                console.log(response);
+            } else if (userInput === "0") {
+                break;
+            } else {
+                continue
+            }
+
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+}
+
+async function getInput(question) {
+    return new Promise((resolve, reject) => {
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        rl.question(question, (input) => {
+            resolve(input)
+            rl.close();
+        });
+    })
+}
+
+runProgram();

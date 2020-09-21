@@ -4,6 +4,7 @@
 
 ## Summary
 In this project you will be able to make requests with either country name or country code, and retrieve information about currency and capital city, using two web services. The first is a third party SOAP service that we use to get the currency and captical imformation. The second service is our own using node and express, this service can give or verify a country code, or country name. 
+Included in the program is a simple TUI interface that enables to to interact with the system.
 
 ## Program flow
 * Call one of three functions.
@@ -24,6 +25,3 @@ In this project you will be able to make requests with either country name or co
 * Client (client)
   - npm install 
   - node app.js
-
-
-
