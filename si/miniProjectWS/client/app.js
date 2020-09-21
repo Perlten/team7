@@ -76,7 +76,26 @@ async function updateCountryBasedOnName(country) {
             let json = await countryRes.json();
             throw new Error(json.error)
         }
-        let res = updateCountryWithCurrencyAndMajorCity(countryRes);
+        let res = await updateCountryWithCurrencyAndMajorCity(countryRes);
+        return res;
+    } catch (e) {
+        throw e
+    }
+}
+async function updateCountryBasedOnCode(countryCode) {
+    try {
+        let params = {
+            "countryCode": countryCode
+        };
+        let url = 'http://localhost:3000/countryCode?' + queryParamsMaker(params);
+
+        let countryRes = await fetch(url)
+
+        if (countryRes.status != 200) {
+            let json = await countryRes.json();
+            throw new Error(json.error)
+        }
+        let res = await updateCountryWithCurrencyAndMajorCity(countryRes);
         return res;
     } catch (e) {
         throw e
@@ -84,5 +103,6 @@ async function updateCountryBasedOnName(country) {
 }
 
 
-updateRandomCountry();
-updateCountryBasedOnName("Angola");
+// updateRandomCountry();
+// updateCountryBasedOnName("Angola");
+updateCountryBasedOnCode("NL");
