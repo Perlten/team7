@@ -52,13 +52,15 @@ async function updateCountryWithCurrencyAndMajorCity(countryInput) {
     };
 
     let updateResponse = await fetch("http://localhost:3000/updateCountry", options);
-    updateResponse.json().then(e => console.log(e));
-
+    let res = await updateResponse.json()
+    console.log(res)
+    return res
 }
 
 async function updateRandomCountry() {
     let country = await fetch("http://localhost:3000/countries")
-    updateCountryWithCurrencyAndMajorCity(country);
+    let res =  await updateCountryWithCurrencyAndMajorCity(country);
+    return res
 }
 
 async function updateCountryBasedOnName(country) {
@@ -74,8 +76,8 @@ async function updateCountryBasedOnName(country) {
             let json = await countryRes.json();
             throw new Error(json.error)
         }
-        updateCountryWithCurrencyAndMajorCity(countryRes);
-
+        let res = updateCountryWithCurrencyAndMajorCity(countryRes);
+        return res;
     } catch (e) {
         throw e
     }
@@ -83,4 +85,4 @@ async function updateCountryBasedOnName(country) {
 
 
 updateRandomCountry();
-// updateCountryBasedOnName("Angola");
+updateCountryBasedOnName("Angola");
