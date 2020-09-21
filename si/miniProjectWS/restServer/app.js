@@ -3,7 +3,6 @@ const countries = require("./countries")
 
 const bodyParser = require('body-parser');
 
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -11,6 +10,19 @@ const PORT = 3000;
 
 app.get("/countries", (req, res) => {
     var country = countries[Math.floor(Math.random() * countries.length)];
+    res.json({ country: country.code });
+})
+
+app.get("/country", (req, res) => {
+
+    let countryName = req.query.countryName
+
+    let country = countries.find(e => e.name === countryName);
+    if(!country){
+        res.status(404)
+        res.json({error: "No country found!"})
+    } 
+
     res.json({ country: country.code });
 })
 
@@ -28,3 +40,5 @@ app.put("/updateCountry", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server started on port " + PORT)
 })
+
+
