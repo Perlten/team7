@@ -1,6 +1,14 @@
 const soap = require('soap');
 const fetch = require('node-fetch')
 
+function queryParamsMaker(params) {
+
+    let query = Object.keys(params)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+        .join('&');
+
+    return query
+}
 
 function getCapital(countryCode) {
     var url = 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL';
@@ -27,11 +35,11 @@ function getCurrency(countryCode) {
     })
 }
 
+async function updateCountryWithCurrencyAndMajorCity(countryInput) {
 
-async function start() {
-    let response = await fetch("http://localhost:3000/countries")
+    let country = await countryInput.json()
+        .then(json => json.country);
 
-    let country = await response.json().then(json => json.country);
     let capital = await getCapital(country);
     let currency = await getCurrency(country);
 
@@ -45,6 +53,34 @@ async function start() {
 
     let updateResponse = await fetch("http://localhost:3000/updateCountry", options);
     updateResponse.json().then(e => console.log(e));
+
 }
 
-start();
+async function updateRandomCountry() {
+    let country = await fetch("http://localhost:3000/countries")
+    updateCountryWithCurrencyAndMajorCity(country);
+}
+
+async function updateCountryBasedOnName(country) {
+    try {
+        let params = {
+            "countryName": country
+        };
+        let url = 'http://localhost:3000/country?' + queryParamsMaker(params);
+
+        let countryRes = await fetch(url)
+
+        if (countryRes.status != 200) {
+            let json = await countryRes.json();
+            throw new Error(json.error)
+        }
+        updateCountryWithCurrencyAndMajorCity(countryRes);
+
+    } catch (e) {
+        throw e
+    }
+}
+
+
+updateRandomCountry();
+updateCountryBasedOnName("Angola");
