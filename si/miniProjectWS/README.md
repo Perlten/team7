@@ -7,7 +7,7 @@ In this project you will be able to make requests with either country name or co
 Included in the program is a simple TUI interface that enables to to interact with the system.
 
 ## Program flow
-* Call one of three functions.
+* Calls one of three functions.
    - updateRandomCountry()     
    - updateCountryBasedOnName(countryName: string)     
    - updateCountryBasedOnCode(countryCode: string)
