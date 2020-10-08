@@ -3,7 +3,6 @@ const countries = require("./countries")
 
 const bodyParser = require('body-parser');
 
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -14,6 +13,30 @@ app.get("/countries", (req, res) => {
     res.json({ country: country.code });
 })
 
+app.get("/country", (req, res) => {
+
+    let countryName = req.query.countryName
+
+    let country = countries.find(e => e.name === countryName);
+    if(!country){
+        res.status(404)
+        res.json({error: "No country found!"})
+    } 
+
+    res.json({ country: country.code });
+})
+
+app.get("/countryCode", (req, res) => {
+    let countryCode = req.query.countryCode
+    
+    let country = countries.find(e => e.code === countryCode);
+    if(!country){
+        res.status(404)
+        res.json({error: "No country found!"})
+    } 
+    res.status(200);
+    res.json({ country: country.code });
+})
 
 app.put("/updateCountry", (req, res) => {
     let countryMeta = req.body;
@@ -28,3 +51,5 @@ app.put("/updateCountry", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server started on port " + PORT)
 })
+
+
