@@ -1,0 +1,128 @@
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{listings}
+
+\title{Template}
+\author{Nikolai Perlt}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+
+    \section{image}
+    Figure \ref{fig:babyYoda} Shows baby Yoda because he is really cute. We can also see on figure 
+    \ref{fig:mando} that we have a mandalorian
+   
+    \begin{figure}
+        \caption{Baby Yoda}
+        \includegraphics[width=\linewidth]{images/babyYoda.jpg}
+        \label{fig:babyYoda}
+    \end{figure}
+
+    \begin{figure}
+        \caption{Mando}
+        \includegraphics[width=\linewidth]{images/mando.jpg}
+        \label{fig:mando}
+    \end{figure}
+
+    \section{Lorem}
+    Aliqua cupidatat fugiat anim voluptate nulla sint labore in aute tempor anim culpa 
+    excepteur. In cupidatat deserunt nisi voluptate mollit non aliquip commodo mollit. 
+    Ea enim magna fugiat sunt cupidatat proident aliquip velit. Veniam sunt pariatur 
+    esse aliqua sunt consectetur proident aliquip quis.
+
+    Sit fugiat nostrud in nostrud qui aute exercitation fugiat sit eu proident ut nulla anim. 
+    Nostrud elit consequat tempor esse irure enim est reprehenderit aliquip aliqua. Cupidatat 
+    exercitation labore irure dolor veniam dolore magna aliquip dolor proident eu anim sint. 
+    Ullamco adipisicing amet nisi incididunt do occaecat. Laborum sunt irure est tempor. 
+    Magna esse consectetur nisi culpa est culpa ipsum ullamco irure. Lorem non pariatur 
+    voluptate Lorem aliquip culpa nisi id nisi sint est qui minim.
+    \subsection{SubLorem}
+    Velit consectetur id irure sunt non minim quis consequat eiusmod culpa. 
+    Velit mollit ea fugiat dolore proident exercitation cupidatat fugiat Lorem 
+    id non aute irure. Irure ut sint sit quis consequat cillum quis est tempor
+    quis reprehenderit ex non. Nostrud voluptate exercitation elit sit ipsum 
+    adipisicing magna cupidatat est elit commodo laborum. Incididunt in dolor 
+    ullamco non magna. Voluptate sit ad reprehenderit id ullamco nostrud ut. 
+    Cupidatat id dolor incididunt aliqua quis eu fugiat.
+    
+    
+    \paragraph{Para}
+    Ex amet duis qui anim in ex ipsum cupidatat excepteur nostrud in. Reprehenderit exercitation consectetur labore velit. Exercitation esse excepteur Lorem non ex cupidatat sint Lorem reprehenderit commodo ullamco. In proident deserunt Lorem velit ad laborum voluptate eu. Tempor duis occaecat velit magna id elit dolore do. Ullamco sunt excepteur laborum dolor Lorem aliqua eu voluptate exercitation ad labore culpa sit sit. Laboris do magna velit eiusmod laboris pariatur mollit id eu.
+    \subparagraph{SubPara}
+    Irure laborum enim sit excepteur. Occaecat ad quis magna dolore tempor labore et. Occaecat sit quis exercitation sit nisi duis. Irure in laboris veniam et elit nisi eiusmod.
+    \subsubsection{SubSubLorem}
+    Pariatur et eiusmod tempor ut laboris in sint amet ad enim. Id proident 
+    aliquip et minim. Ad duis magna anim aute deserunt cillum esse pariatur ad 
+    
+    \begin{itemize}
+        \item Item 1
+        \item Item 2
+        \item Item 3
+    \end{itemize}
+
+    
+    quis laboris exercitation enim veniam. Minim ea dolor Lorem tempor nostrud 
+    excepteur amet aliqua consectetur ea sit. Amet exercitation adipisicing in 
+
+    \begin{enumerate}
+        \item Item 1
+        \item Table \ref{tab:tableTest}
+        \item Item 3
+    \end{enumerate}
+    elit laborum in nisi ullamco officia labore sunt duis dolor mollit.
+
+    \section*{UnNumSection}
+    Nulla fugiat irure aliqua elit nulla exercitation adipisicing eu sunt. Et enim tempor voluptate nisi deserunt dolor velit. Voluptate cillum ut culpa nulla officia Lorem voluptate officia. Culpa ea nulla ullamco amet voluptate deserunt ut et veniam laborum commodo mollit commodo. Quis cillum ullamco enim occaecat aute adipisicing tempor et sit aliqua incididunt cillum deserunt. Velit laboris cillum laborum cupidatat exercitation ex nulla nostrud consequat laboris est irure. In ut labore voluptate sint eu.
+    
+
+    \section{Table}
+        \begin{table}
+            \begin{center}
+                \begin{tabular}{ |c|c|c| }
+                    \hline
+                    cell1 & cell2 & cell3 \\ 
+                    cell4 & cell5 & cell6 \\  
+                    cell7 & cell8 & cell9 \\    
+                    \hline
+                \end{tabular}
+            \end{center}
+            \caption{\label{tab:tableTest}Best table ever}
+        \end{table}
+
+    \section{CodeListing}
+        \begin{lstlisting}[language=C++]
+            RendererAPI::ShaderProgramSource RendererAPI::parseShader(const std::string& filePath) {
+                std::ifstream stream(filePath);
+                enum class ShaderType {
+                        NONE = -1, VERTEX = 0, FRAGMENT = 1
+                };
+
+                std::string line;
+                std::stringstream ss[2];
+                ShaderType currentShaderType = ShaderType::NONE;
+                while (getline(stream, line)) {
+                        if (line.find("#shader") != std::string::npos) {
+                                if (line.find("vertex") != std::string::npos) {
+                                        currentShaderType = ShaderType::VERTEX;
+                                }
+                                else if (line.find("fragment") != std::string::npos) {
+                                        currentShaderType = ShaderType::FRAGMENT;
+                                }
+                        }
+                        else {
+                                if (currentShaderType != ShaderType::NONE) {
+                                        ss[(int)currentShaderType] << line << "\n";
+                                }
+                        }
+                }
+                RendererAPI::ShaderProgramSource spc;
+                spc.vertexShader = ss[0].str();
+                spc.fragmentShader = ss[1].str();
+                return spc;
+        }
+
+        \end{lstlisting}
+
+\end{document}
