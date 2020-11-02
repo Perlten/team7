@@ -3,21 +3,26 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        State s1 = new State();
-        s1.addProperty("A", new HashSet<Integer>(Arrays.asList(1, 2, 3, 4)));
-        s1.addProperty("B", new HashSet<Integer>(Arrays.asList(8)));
-        s1.addProperty("C", new HashSet<Integer>(Arrays.asList(8, 10)));
-        s1.addProperty("D", new HashSet<Integer>(Arrays.asList(11)));
-        s1.print();
+        State endState = new State();
+        endState.addProperty("x", new HashSet<Integer>(Arrays.asList(200)));
+        endState.addProperty("y", new HashSet<Integer>(Arrays.asList(5)));
+        endState.addProperty("h", new HashSet<Integer>(Arrays.asList(205)));
 
-        State s2 = new State();
-        s2.addProperty("A", new HashSet<Integer>(Arrays.asList(1, 2)));
-        s2.addProperty("B", new HashSet<Integer>(Arrays.asList(8)));
-        s2.addProperty("D", new HashSet<Integer>(Arrays.asList(11)));
-        s2.print();
+        String source = "" +
+                "def test INTEGER { " +
+                "let x = 100 " +
+                "let x = 200 " +
+                "let y = 5 " +
+                "let h = y + x " +
+                "}";
+        AST ast = new AST(source);
+        if (ast.compile()) {
+            ast.run();
+            State astState = ast.getCurrentState();
 
-//        System.out.println(s1.compareTo(s2));
-        State newState = s1.intersection(s2);
-        newState.print();
+            System.out.println(astState.compareTo(endState));
+        } else {
+            System.out.println("COMPILE ERROR!!!");
+        }
     }
 }
