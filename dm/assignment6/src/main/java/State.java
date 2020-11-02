@@ -11,6 +11,14 @@ public class State implements Comparable<State> {
         this.stateMap.put(key, set);
     }
 
+    public Set<Integer> getSet(String key){
+        return this.stateMap.get(key);
+    }
+
+    public int getSingleValue(String key){
+        return this.stateMap.get(key).iterator().next();
+    }
+
     public void print(){
         System.out.println(this.toString());
     }
