@@ -30,7 +30,7 @@ class BankDue {
             rb.send("bankResponse", res)
         })
 
-        rb.subscribe("mortgage", (amount) => {
+        rb.subscribe("mortgage", (body) => {
             const res = {
                 name: this.bankName,
                 yearlyInterestRate: this.mortgageLoans(body.amount),
@@ -41,7 +41,7 @@ class BankDue {
             rb.send("bankResponse", res)
         })
 
-        rb.subscribe("student", (amount) => {
+        rb.subscribe("student", (body) => {
             const res = {
                 name: this.bankName,
                 yearlyInterestRate: this.studentLoans(body.amount),
