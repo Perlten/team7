@@ -1,6 +1,8 @@
 # Brainstorm
 By Nikolai Perlt, Jesper Rusbjerg & Michael Due Pedersen
 
+[Google Docs](https://docs.google.com/document/d/1NzzidEb_CEyP0DWycolHPa2sPdBabaubv7AZZqTCvdA/edit#)
+
 ## Emner der skal inkluderes
 - RPC
 - REST
