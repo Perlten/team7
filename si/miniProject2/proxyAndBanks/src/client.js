@@ -12,9 +12,7 @@ const rl = readline.createInterface({
 
 class Client {
     requestOffer() {
-        let type = "quick"
-        let amount = 40;
-        let customer = "Anders";
+        let type, amount, customer;
 
         const rl = readline.createInterface({
             input: process.stdin,
