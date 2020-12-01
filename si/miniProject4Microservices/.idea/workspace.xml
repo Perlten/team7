@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79cb69cc-c3e6-49f9-966a-97b1468ac599" name="Default Changelist" comment="" />
+    <list default="true" id="79cb69cc-c3e6-49f9-966a-97b1468ac599" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +47,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MicroservicesCarCatalog" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -57,6 +72,7 @@
       <updated>1606738017696</updated>
       <workItem from="1606738018979" duration="2000" />
       <workItem from="1606738031422" duration="1812000" />
+      <workItem from="1606779025054" duration="309000" />
     </task>
     <servers />
   </component>
@@ -76,6 +92,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="479" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606779271571">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="479" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1122@0.0.2048.1122" timestamp="1606779271571" />
+    <state x="754" y="351" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606779271132">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="754" y="351" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2048.1122@0.0.2048.1122" timestamp="1606779271132" />
+    <state x="805" y="316" key="FileChooserDialogImpl" timestamp="1606779331805">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="805" y="316" key="FileChooserDialogImpl/0.0.2048.1122@0.0.2048.1122" timestamp="1606779331805" />
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606738473916">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

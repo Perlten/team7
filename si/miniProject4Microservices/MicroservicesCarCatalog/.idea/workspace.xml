@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b657908-ea4e-4020-b0f4-e028dcfe81c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1l1zMCpt7CKg0XgkZrKIrUNDcv9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="car-catalog []" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b657908-ea4e-4020-b0f4-e028dcfe81c2" name="Default Changelist" comment="" />
+      <created>1606779334705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606779334705</updated>
+      <workItem from="1606779335759" duration="40000" />
+      <workItem from="1606779388083" duration="7000" />
+      <workItem from="1606779412606" duration="292000" />
+      <workItem from="1606779713207" duration="29000" />
+      <workItem from="1606779871446" duration="28000" />
+      <workItem from="1606824486332" duration="25000" />
+      <workItem from="1606824520133" duration="202000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="479" y="216" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606779698868">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="479" y="216" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1122@0.0.2048.1122" timestamp="1606779698868" />
+    <state x="754" y="351" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606779697895">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="754" y="351" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2048.1122@0.0.2048.1122" timestamp="1606779697895" />
+    <state x="805" y="316" key="FileChooserDialogImpl" timestamp="1606824719439">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="805" y="316" key="FileChooserDialogImpl/0.0.2048.1122@0.0.2048.1122" timestamp="1606824719439" />
+    <state width="2005" height="309" key="GridCell.Tab.0.bottom" timestamp="1606824510722">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="309" key="GridCell.Tab.0.bottom/0.0.2048.1122@0.0.2048.1122" timestamp="1606824510722" />
+    <state width="2005" height="309" key="GridCell.Tab.0.center" timestamp="1606824510722">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="309" key="GridCell.Tab.0.center/0.0.2048.1122@0.0.2048.1122" timestamp="1606824510722" />
+    <state width="2005" height="309" key="GridCell.Tab.0.left" timestamp="1606824510722">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="309" key="GridCell.Tab.0.left/0.0.2048.1122@0.0.2048.1122" timestamp="1606824510722" />
+    <state width="2005" height="309" key="GridCell.Tab.0.right" timestamp="1606824510722">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="309" key="GridCell.Tab.0.right/0.0.2048.1122@0.0.2048.1122" timestamp="1606824510722" />
+    <state x="465" y="222" key="new project wizard" timestamp="1606824720824">
+      <screen x="0" y="0" width="2048" height="1122" />
+    </state>
+    <state x="465" y="222" key="new project wizard/0.0.2048.1122@0.0.2048.1122" timestamp="1606824720824" />
+  </component>
+</project>
