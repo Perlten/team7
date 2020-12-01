@@ -1,0 +1,139 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ccm
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+        - name: ccm
+          image: perlt/ccm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ccm-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8090
+      targetPort: 8090
+      nodePort: 30001
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cgm
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+        - name: cgm
+          image: perlt/cgm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cgm-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30002
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-review
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+        - name: user-reviews
+          image: perlt/user-reviews
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-review-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8070
+      targetPort: 8070
+      nodePort: 30003
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mds
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+        - name: mds
+          image: perlt/mds
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mds-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: web
+  ports:
+    - port: 8761
+      targetPort: 8761
+      nodePort: 30004
