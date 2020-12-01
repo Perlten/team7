@@ -23,7 +23,7 @@ public class CarRest {
         factory.setReadTimeout(3000);
         var restTemplate = new RestTemplate(factory);
 
-        var res = restTemplate.getForObject("http://localhost:8090/getCars", String.class);
+        var res = restTemplate.getForObject("http://ccm:8090/getCars", String.class);
         List<CarDTO> tempList = new Gson().fromJson(res, new TypeToken<ArrayList<CarDTO>>() {
         }.getType());
         List<CarDTO> resList = new ArrayList<>();
