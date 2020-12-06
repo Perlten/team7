@@ -11,8 +11,6 @@ public class TcpServer {
     private int port;
     private ServerSocket server;
 
-    private final int BUFFER_SIZE = 8000;
-
     public TcpServer(int port) throws IOException {
         this.port = port;
         this.server = new ServerSocket(this.port);
