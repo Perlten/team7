@@ -18,12 +18,19 @@ public class Main {
             Main.saveDataToFile(1000 * 1000 * 1000);
             System.out.println("Created data file");
         }
+
         System.out.println("Reading data file");
         byte[] data = Main.loadDataFromFile();
         System.out.println("Sending data");
+
+        System.out.println("Send TCP");
         for (int i = 0; i < 10; i++) {
-//            Main.sendOverUdp(data);
             Main.sendOverTcp(data);
+        }
+
+        System.out.println("Send UDP");
+        for (int i = 0; i < 10; i++) {
+            Main.sendOverUdp(data);
         }
     }
 

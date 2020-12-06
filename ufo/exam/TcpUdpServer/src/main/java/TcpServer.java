@@ -29,14 +29,9 @@ public class TcpServer {
                 dis.readFully(data);
             }
 
-            System.out.println(len);
-
             in.close();
             client.close();
             dis.close();
-
-            System.out.println("DONE");
-            System.out.println("Data send: " + data.length);
         }
 
     }

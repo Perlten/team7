@@ -20,8 +20,6 @@ public class UdpServer {
             DatagramPacket packet
                     = new DatagramPacket(buf, buf.length);
             serverSocket.receive(packet);
-            System.out.println(packet.getAddress());
-            System.out.println(packet.getLength());
         }
     }
 }
