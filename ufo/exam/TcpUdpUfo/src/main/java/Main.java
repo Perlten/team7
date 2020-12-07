@@ -4,12 +4,14 @@ import utils.TimeMeasure;
 
 import java.io.*;
 import java.net.DatagramPacket;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Main {
 
     private static final String DATA_PATH = "data";
+    private static final int SAMPLE_SIZE = 1000;
 
     public static void main(String[] args) throws IOException, InterruptedException {
         File file = new File(Main.DATA_PATH);
@@ -24,19 +26,42 @@ public class Main {
         System.out.println("Sending data");
 
         System.out.println("Send TCP");
-        for (int i = 0; i < 10; i++) {
-            Main.sendOverTcp(data);
+        List<Long> tcpResList = new ArrayList<>();
+        for (int i = 0; i < Main.SAMPLE_SIZE; i++) {
+            long time = Main.sendOverTcp(data);
+            tcpResList.add(time);
         }
+        Main.saveResToFile(tcpResList, "./tcpRes.txt");
 
         System.out.println("Send UDP");
-        for (int i = 0; i < 10; i++) {
-            Main.sendOverUdp(data);
+        List<Long> udpResList = new ArrayList<>();
+        for (int i = 0; i < Main.SAMPLE_SIZE; i++) {
+            long time = Main.sendOverUdp(data);
+            udpResList.add(time);
         }
+        Main.saveResToFile(udpResList, "./udpRes.txt");
     }
 
-    private static void sendOverUdp(byte[] data) throws IOException {
+    private static void saveResToFile(List<Long> dataList, String path) {
+        dataList.sort(Long::compareTo);
+        File file = new File(path);
+        try {
+            file.createNewFile();
+            FileWriter writer = new FileWriter(file);
+            for (long data : dataList) {
+                writer.write(Long.toString(data) + "\n");
+            }
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static long sendOverUdp(byte[] data) throws IOException {
         TimeMeasure timeMeasure = new TimeMeasure();
-        UdpTransport udp = new UdpTransport("localhost", 3000, data);
+        UdpTransport udp = new UdpTransport("localhost", 3001, data);
         List<DatagramPacket> packetList = udp.createPackets(data);
 
 
@@ -49,9 +74,10 @@ public class Main {
         long time = timeMeasure.endTimer();
 
         System.out.println(time);
+        return time;
     }
 
-    private static void sendOverTcp(byte[] data) throws IOException {
+    private static long sendOverTcp(byte[] data) throws IOException {
         TimeMeasure timeMeasure = new TimeMeasure();
         TcpTransport tcp = new TcpTransport("localhost", 3000);
 
@@ -62,6 +88,7 @@ public class Main {
         long time = timeMeasure.endTimer();
 
         System.out.println(time);
+        return time;
     }
 
     private static void saveDataToFile(int size) throws IOException {

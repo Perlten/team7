@@ -27,7 +27,7 @@ public class Main {
 
     private static void startUdpServer() throws IOException {
         System.out.println("Start udp server");
-        UdpServer udp = new UdpServer(3000);
+        UdpServer udp = new UdpServer(3001);
         udp.start();
     }
 }
