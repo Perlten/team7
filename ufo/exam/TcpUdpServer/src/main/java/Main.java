@@ -3,7 +3,19 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-//        Main.startUdpServer();
+        Thread udpThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Main.startUdpServer();
+                } catch (IOException e) {
+                    System.out.println("UDP server crash");
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        udpThread.start();
         Main.startTcpServer();
     }
 
@@ -15,7 +27,7 @@ public class Main {
 
     private static void startUdpServer() throws IOException {
         System.out.println("Start udp server");
-        UdpServer udp = new UdpServer(3000);
+        UdpServer udp = new UdpServer(3001);
         udp.start();
     }
 }
