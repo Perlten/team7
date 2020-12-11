@@ -13,41 +13,45 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         byte[] data = Main.createRandByteArray(1000 * 1000 * 1000);
-
-//        Main.sendOverUdp(data);
-        Main.sendOverTcp(data);
+        Main.sendOverUdp(data);
+//        Main.sendOverTcp(data);
     }
 
     private static void sendOverUdp(byte[] data) throws IOException {
-        TimeMeasure timeMeasure = new TimeMeasure();
+        for (int i = 0; i < 100; i++) {
+
         UdpTransport udp = new UdpTransport("localhost", 3000, data);
         List<DatagramPacket> packetList = udp.createPackets(data);
 
-
-        timeMeasure.startTimer();
+        long start = System.currentTimeMillis();
 
         for (DatagramPacket packet : packetList) {
             udp.sendPackage(packet);
         }
 
-        long time = timeMeasure.endTimer();
 
-        System.out.println(time);
+        long end = System.currentTimeMillis();
+
+        float sec = (end - start) ;
+        System.out.println(sec + " milli seconds");
+        }
     }
 
     private static void sendOverTcp(byte[] data) throws IOException {
-        TimeMeasure timeMeasure = new TimeMeasure();
+
+
+        for (int i = 0; i < 100; i++) {
         TcpTransport tcp = new TcpTransport("localhost", 3000);
 
-
-        timeMeasure.startTimer();
+        long start = System.currentTimeMillis();
 
         tcp.sendPackage(data);
 
-        long time = timeMeasure.endTimer();
+        long end = System.currentTimeMillis();
 
-        System.out.println(time);
-
+        float sec = (end - start) ;
+        System.out.println(sec + " milli seconds");
+        }
     }
 
     private static byte[] createRandByteArray(int size) {
